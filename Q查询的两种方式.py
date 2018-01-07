@@ -1,0 +1,13 @@
+# 方式一：customer_list = models.Customer.objects.filter(Q(recv_date__lt=no_deal) | Q(last_consult_date__lt=no_follow),status=2)
+# 方式二：
+# con = Q()
+# q1 = Q()
+# q1.children.append(("recv_date__lt", no_deal))
+# q2 = Q()
+# q2.children.append(("last_consult_date__lt", no_follow))
+# q3 = Q()
+# q3.children.append(("status", 2))
+# con.add(q1, "OR")
+# con.add(q2, "OR")
+# con.add(q3, "AND")
+# customer_list = models.Customer.objects.filter(con)

@@ -1,0 +1,33 @@
+{% extends "stark/layout.html" %}
+<h1>公共的客户列表</h1>
+{% block body %}
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-bordered panel-primary">
+                <thead>
+                    <th>ID</th>
+                    <th>QQ</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>选择你要跟进的用户</th>
+                </thead>
+                {% for foo in customer_list %}
+                    <tr>
+                        <td>{{ foo.id }}</td>
+                        <td>{{ foo.qq }}</td>
+                        <td>{{ foo.name }}</td>
+                        <td>{{ foo.get_gender_display }}</td>
+                        {% if foo.consultant_id == current_user_id %}
+                         <td><a href="">无权</a></td>
+                        {% else %}
+                         <td><a href="/index/crm/customer/{{ foo.id }}/competition/">抢单</a></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

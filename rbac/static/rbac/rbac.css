@@ -1,0 +1,26 @@
+.left{
+   position: absolute;
+    left: 0;
+    width: 230px;
+    top:48px;
+    bottom:0;
+    background-color: #ce8483;
+}
+.right{
+    position: absolute;
+    left: 231px;
+    right: 0;
+    top:48px;
+    bottom: 0;
+    background-color: floralwhite;
+    overflow: scroll
+}
+.item-permission a{
+    display: block;
+}
+.hide{
+    display: none;
+}
+.item-permission a.active{
+    color: red;
+}

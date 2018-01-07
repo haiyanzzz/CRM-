@@ -1,0 +1,12 @@
+{% extends "stark/layout.html" %}
+{% block body %}
+    <h1>批量录入</h1>
+    <p><a href="/static/xxx.xlsx">下载模板文件</a></p>
+    <p><a href="/load">下载模板文件二，不用a标签的</a></p>
+    <form method="post" class="form-horizontal" novalidate enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="elfile">
+        <input type="submit" class="btn btn-primary" value="提交">
+    </form>
+{% endblock %}
+
